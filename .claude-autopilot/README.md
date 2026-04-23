@@ -16,11 +16,13 @@
 4. 并行 agent 统一用 `isolation="worktree"`，完成后主 turn 负责 merge 回 autopilot 分支。
 5. 尊重上层约束：实盘/链上交易代码默认关闭，不要在配置里埋真私钥或 mainnet endpoint。
 6. Token 节流 / 账户级限额：
-   - **尊重 Anthropic 5h rolling window**。本账户具体档位未知，按"节约"模式执行
-   - 并行 sub-agent 数量上限：Seg 1 = 2，Seg 2 = 3，Seg 3 = 2（已写入对应 segment*.md）
+   - **尊重 Anthropic 5h session window 与 weekly 配额**
+   - Seg 1 结束时配额状态：session 94%（20:40 重置），week 60%（Apr 29 重置）
+   - 并行 sub-agent 数量上限（修订）：Seg 2 = 2，Seg 3 = 2
    - sub-agent 不要读 `backtrader/backtrader/linebuffer.py` / `lineseries.py` 全文，靠 grep 定点
-   - sub-agent 报告字数上限 1500 字
+   - **单次 agent prompt ≤ 2K tokens**，报告 ≤ 1500 字
    - 主 turn 不要把 agent 返回的原文全量粘到下一个 agent 的 prompt，做总结后再转发
+   - **周配额守门**：每个 Segment 结束前检查周配额，若 >80% 立即停工并记 log，未做完的 issue 留到用户手工接手
    - **触发 rate limit 时**：记日志、sleep 600s、最多重试 2 次；仍失败就跳过本 issue 写入 log
 7. 完成本 Segment 所有工作后：
    - 如果仍有时间 + 预算，读 `overflow.md` 拿下一个 issue 继续做
