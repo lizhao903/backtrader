@@ -44,6 +44,11 @@ version = { attr = "backtrader.version.__version__" }
 [tool.setuptools.packages.find]
 exclude = ["docs*", "docs2*", "samples*", "tests*", "contrib*"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
 [tool.ruff]
 target-version = "py310"
 line-length = 100

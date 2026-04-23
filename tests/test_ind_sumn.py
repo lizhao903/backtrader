@@ -46,7 +46,3 @@ def test_run(main=False):
                        chkmin=chkmin,
                        chkvals=chkvals,
                        chkargs=chkargs)
-
-
-if __name__ == '__main__':
-    test_run(main=True)

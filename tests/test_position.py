@@ -86,7 +86,3 @@ def test_run(main=False):
     assert pos.price == nprice
     assert opened == size + upsize
     assert closed == -size
-
-
-if __name__ == '__main__':
-    test_run(main=True)

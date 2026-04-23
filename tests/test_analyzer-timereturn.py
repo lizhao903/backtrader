@@ -171,7 +171,3 @@ def test_run(main=False):
                 sval = '0.2794999999999983'
 
             assert str(analysis[next(iter(analysis.keys()))]) == sval
-
-
-if __name__ == '__main__':
-    test_run(main=True)

@@ -157,7 +157,3 @@ def test_run(main=False):
                     print(CHKCASH)
                     print('-' * 50)
                     print(_chkcash)
-
-
-if __name__ == '__main__':
-    test_run(main=True)

@@ -21,6 +21,8 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
+import pytest
+
 import testcommon
 
 import backtrader as bt
@@ -37,7 +39,8 @@ chkind = [btind.SMA]
 chkargs = dict()
 
 
-def test_run(main=False, exbar=False):
+@pytest.mark.parametrize("exbar", [False, -1, -2])
+def test_run(exbar, main=False):
     data = testcommon.getdata(0)
     data.replay(timeframe=bt.TimeFrame.Weeks, compression=1)
     datas = [data]
@@ -55,6 +58,3 @@ def test_run(main=False, exbar=False):
                        exbar=exbar)
 
 
-if __name__ == '__main__':
-    for exbar in [False, -1, -2]:
-        test_run(main=True, exbar=exbar)

@@ -120,6 +120,3 @@ def test_run(main=False):
     assert pending[0].price == 1.2
     assert pending[1].size == 40
     assert pending[1].price == 1.3
-
-if __name__ == '__main__':
-    test_run(main=True)

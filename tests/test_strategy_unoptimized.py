@@ -192,7 +192,3 @@ def test_run(main=False):
                            printops=main,
                            stocklike=stlike,
                            plot=main)
-
-
-if __name__ == '__main__':
-    test_run(main=True)

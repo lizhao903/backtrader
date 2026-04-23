@@ -84,7 +84,3 @@ def check_futures():
 def test_run(main=False):
     check_stocks()
     check_futures()
-
-
-if __name__ == '__main__':
-    test_run(main=True)

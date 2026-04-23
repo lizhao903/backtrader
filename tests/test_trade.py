@@ -126,7 +126,3 @@ def test_run(main=False):
     assert tr.price == price  # no change ... we simple closed the operation
     # assert tr.value == upvalue
     assert tr.commission == commission + upcomm
-
-
-if __name__ == '__main__':
-    test_run(main=True)

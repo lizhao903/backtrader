@@ -37,6 +37,3 @@ def test_run(main=False):
     https://community.backtrader.com/topic/2661/frompackages-directive-functionality-seems-to-be-broken-when-using-inheritance
     """
     test = TestFrompackages()
-
-if __name__ == '__main__':
-    test_run(main=True)

@@ -179,7 +179,3 @@ def test_run(main=False):
                     # Handle different precision
                     assert str(analysis.sqn)[0:14] == '0.912550316439'
                     assert str(analysis.trades) == '11'
-
-
-if __name__ == '__main__':
-    test_run(main=True)

@@ -67,7 +67,3 @@ def test_run(main=False):
                 count += 1
 
             assert count == 256  # header + 256 lines data
-
-
-if __name__ == '__main__':
-    test_run(main=True)
