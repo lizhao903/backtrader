@@ -15,6 +15,9 @@
 
 See ADR 0001 (live-trading). Concrete implementations are loaded on demand,
 e.g. ``from backtrader.brokers.wallets.envvar import EnvVarWallet``.
+
+Available implementations: EnvVarWallet (envvar.py), LocalKeystoreWallet
+(keystore.py), LedgerWallet (ledger.py, stub).
 """
 
 from __future__ import (absolute_import, division, print_function,
