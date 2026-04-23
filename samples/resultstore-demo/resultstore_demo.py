@@ -126,6 +126,12 @@ def main(argv=None):
     json_path = args.db.replace('.sqlite', '.json')
     export_run_to_json(args.db, run_id, json_path)
     print('JSON export: {0}'.format(json_path))
+
+    # --- #13: HTML report ---
+    from backtrader.analyzers.htmlreport import render_report
+    html_path = args.db.replace('.sqlite', '.html')
+    render_report(args.db, run_id, html_path)
+    print('HTML report: {0}'.format(html_path))
     return 0
 
 

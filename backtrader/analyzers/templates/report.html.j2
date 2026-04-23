@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head>
+  <meta charset="utf-8">
+  <title>Backtest {{ run.run_id }}</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; max-width: 1200px; margin: 2em auto; padding: 0 1em; }
+    h1, h2 { border-bottom: 1px solid #ddd; padding-bottom: 0.3em; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+    th, td { text-align: left; padding: 0.4em 0.7em; border-bottom: 1px solid #eee; }
+    th { background: #f7f7f7; }
+    .metric-key { color: #666; font-family: Menlo, monospace; font-size: 0.9em; }
+    .value-num { font-family: Menlo, monospace; text-align: right; }
+    .section { margin: 2em 0; }
+  </style>
+</head><body>
+  <h1>Backtest Report</h1>
+  <p><strong>Run:</strong> <code>{{ run.run_id }}</code></p>
+  <p><strong>Label:</strong> {{ run.label or '—' }}</p>
+  <p><strong>Strategy:</strong> {{ run.strategy_name or '—' }}</p>
+  <p><strong>Period:</strong> {{ run.start_ts }} → {{ run.end_ts or '(ongoing)' }}</p>
+  <p><strong>Cash:</strong>
+    {% if run.cerebro_broker_starting_cash is not none %}{{ '%.2f' % run.cerebro_broker_starting_cash }}{% else %}—{% endif %}
+    →
+    {% if run.cerebro_broker_ending_value is not none %}{{ '%.2f' % run.cerebro_broker_ending_value }}{% else %}—{% endif %}
+  </p>
+
+  <div class="section"><h2>Charts</h2>
+    {% for chart in charts %}{{ chart|safe }}{% endfor %}
+  </div>
+
+  <div class="section"><h2>Metrics</h2>
+    {% if metrics_by_analyzer %}
+    {% for analyzer, rows in metrics_by_analyzer.items() %}
+      <h3>{{ analyzer }}</h3>
+      <table>
+        <thead><tr><th>Key</th><th>Numeric</th><th>Text</th></tr></thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <td class="metric-key">{{ row.key }}</td>
+            <td class="value-num">{% if row.value_num is not none %}{{ '%.6g' % row.value_num }}{% endif %}</td>
+            <td>{{ row.value_text if row.value_text else '' }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endfor %}
+    {% else %}
+      <p><em>No metrics recorded for this run.</em></p>
+    {% endif %}
+  </div>
+
+  <div class="section"><h2>Trades ({{ trades|length }})</h2>
+    {% if trades %}
+    <table>
+      <thead><tr><th>#</th><th>Data</th><th>Size</th><th>Price</th><th>PnL</th><th>PnL (comm)</th><th>Commission</th><th>Open</th><th>Close</th></tr></thead>
+      <tbody>
+        {% for t in trades[:500] %}
+        <tr>
+          <td class="value-num">{{ t.trade_ref }}</td>
+          <td>{{ t.data_name }}</td>
+          <td class="value-num">{% if t.size is not none %}{{ '%.4f' % t.size }}{% endif %}</td>
+          <td class="value-num">{% if t.price is not none %}{{ '%.4f' % t.price }}{% endif %}</td>
+          <td class="value-num">{% if t.pnl is not none %}{{ '%.4f' % t.pnl }}{% endif %}</td>
+          <td class="value-num">{% if t.pnlcomm is not none %}{{ '%.4f' % t.pnlcomm }}{% endif %}</td>
+          <td class="value-num">{% if t.commission is not none %}{{ '%.4f' % t.commission }}{% endif %}</td>
+          <td>{{ t.open_dt or '' }}</td>
+          <td>{{ t.close_dt or '' }}</td>
+        </tr>
+        {% endfor %}
+        {% if trades|length > 500 %}
+        <tr><td colspan="9"><em>... {{ trades|length - 500 }} more trades truncated for display</em></td></tr>
+        {% endif %}
+      </tbody>
+    </table>
+    {% else %}
+      <p><em>No trades recorded for this run.</em></p>
+    {% endif %}
+  </div>
+</body></html>
