@@ -22,6 +22,7 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
 from ..comminfo import CommInfoBase
+from .crypto import CryptoCommissionInfo
 
 
 class CommInfo(CommInfoBase):
@@ -62,3 +63,15 @@ class CommInfo_Stocks_Fixed(CommInfo_Stocks):
     params = (
         ('commtype', CommInfoBase.COMM_FIXED),
     )
+
+
+__all__ = [
+    'CommInfo',
+    'CommInfo_Futures',
+    'CommInfo_Futures_Perc',
+    'CommInfo_Futures_Fixed',
+    'CommInfo_Stocks',
+    'CommInfo_Stocks_Perc',
+    'CommInfo_Stocks_Fixed',
+    'CryptoCommissionInfo',
+]
