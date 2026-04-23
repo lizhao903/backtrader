@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backtrader"
+dynamic = ["version"]
+description = "BackTesting Engine"
+readme = "README.rst"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+authors = [
+    { name = "Daniel Rodriguez", email = "danjrod@gmail.com" },
+]
+keywords = ["trading", "development"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Software Development",
+    "Topic :: Office/Business :: Financial",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+plotting = ["matplotlib"]
+
+[project.scripts]
+btrun = "backtrader.btrun:btrun"
+
+[project.urls]
+Homepage = "https://github.com/mementum/backtrader"
+Repository = "https://github.com/mementum/backtrader"
+
+[tool.setuptools.dynamic]
+version = { attr = "backtrader.version.__version__" }
+
+[tool.setuptools.packages.find]
+exclude = ["docs*", "docs2*", "samples*", "tests*", "contrib*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501", "E741", "E731"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402", "F401", "F841"]
+"samples/*" = ["E402", "F401", "F841"]
