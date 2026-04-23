@@ -18,18 +18,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
 import datetime
 import time
 
-from backtrader.utils.py3 import range
-
 import backtrader as bt
-import backtrader.indicators as btind
 import backtrader.feeds as btfeeds
+import backtrader.indicators as btind
+from backtrader.utils.py3 import range
 
 
 class OptimizeStrategy(bt.Strategy):

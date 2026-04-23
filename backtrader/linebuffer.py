@@ -28,21 +28,18 @@ with appends, forwarding, rewinding, resetting and other
 .. moduleauthor:: Daniel Rodriguez
 
 '''
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import array
 import collections
 import datetime
-from itertools import islice
 import math
+from itertools import islice
 
-from .utils.py3 import range, with_metaclass, string_types
-
-from .lineroot import LineRoot, LineSingle, LineMultiple
 from . import metabase
+from .lineroot import LineMultiple, LineRoot, LineSingle
 from .utils import num2date, time2num
-
+from .utils.py3 import range, string_types, with_metaclass
 
 NAN = float('NaN')
 

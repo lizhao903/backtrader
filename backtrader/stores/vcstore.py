@@ -18,24 +18,20 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from datetime import date, datetime, time, timedelta
+import ctypes
 import os.path
 import threading
 import time as _timemod
+from datetime import date, datetime, time, timedelta
 
-import ctypes
-
-from backtrader import TimeFrame, Position
+from backtrader import Position, TimeFrame
 from backtrader.feed import DataBase
 from backtrader.metabase import MetaParams
-from backtrader.utils.py3 import (MAXINT, range, queue, string_types,
-                                  with_metaclass)
 from backtrader.utils import AutoDict
+from backtrader.utils.py3 import MAXINT, queue, range, string_types, with_metaclass
 
 
 class _SymInfo(object):

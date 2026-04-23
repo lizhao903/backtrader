@@ -18,21 +18,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from datetime import date, datetime, timedelta
 import threading
+from datetime import date, datetime, timedelta
 
-from backtrader import BrokerBase, Order, BuyOrder, SellOrder
+from backtrader import BrokerBase, BuyOrder, Order, SellOrder
 from backtrader.comminfo import CommInfoBase
 from backtrader.feed import DataBase
 from backtrader.metabase import MetaParams
 from backtrader.position import Position
-from backtrader.utils.py3 import with_metaclass
-
 from backtrader.stores import vcstore
+from backtrader.utils.py3 import with_metaclass
 
 
 class VCCommInfo(CommInfoBase):

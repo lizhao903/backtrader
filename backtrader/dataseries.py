@@ -18,16 +18,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import datetime as _datetime
-from datetime import datetime
 import inspect
+from datetime import datetime
 
-from .utils.py3 import range, with_metaclass
 from .lineseries import LineSeries
 from .utils import AutoOrderedDict, OrderedDict, date2num
+from .utils.py3 import range, with_metaclass
 
 
 class TimeFrame(object):

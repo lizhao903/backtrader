@@ -62,6 +62,7 @@
 
 from ..utils.py3 import zip
 
+
 class Widget(object):
     """
     Abstract base class for GUI neutral widgets

@@ -18,17 +18,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 from datetime import datetime, timedelta
 
-from backtrader.feed import DataBase
 from backtrader import TimeFrame, date2num, num2date
-from backtrader.utils.py3 import (integer_types, queue, string_types,
-                                  with_metaclass)
+from backtrader.feed import DataBase
 from backtrader.metabase import MetaParams
 from backtrader.stores import oandastore
+from backtrader.utils.py3 import integer_types, queue, string_types, with_metaclass
 
 
 class MetaOandaData(DataBase.__class__):

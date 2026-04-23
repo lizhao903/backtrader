@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-import sys
-import os
+import argparse
 import io
 import logging
-import argparse
+import os
+import sys
+
 import pandas as pd
 from influxdb import DataFrameClient as dfclient
 from influxdb.exceptions import InfluxDBClientError
-
 
 
 class InfluxDBTool(object):

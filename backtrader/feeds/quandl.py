@@ -18,20 +18,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from datetime import date, datetime
 import io
 import itertools
-
-from ..utils.py3 import (urlopen, urlquote, ProxyHandler, build_opener,
-                         install_opener)
+from datetime import date, datetime
 
 from .. import feed
 from ..utils import date2num
-
+from ..utils.py3 import ProxyHandler, build_opener, install_opener, urlopen, urlquote
 
 __all__ = ['QuandlCSV', 'Quandl']
 

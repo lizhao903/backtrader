@@ -18,9 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
 import collections
@@ -29,14 +27,14 @@ import io
 import logging
 import sys
 
-
 PY2 = sys.version_info.major == 2
 if PY2:
-    from urllib2 import urlopen
     from urllib import quote as urlquote
+
+    from urllib2 import urlopen
 else:
-    from urllib.request import urlopen
     from urllib.parse import quote as urlquote
+    from urllib.request import urlopen
 
 
 logging.basicConfig(

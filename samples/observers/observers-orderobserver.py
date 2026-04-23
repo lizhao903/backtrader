@@ -18,16 +18,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import datetime
+
+from orderobserver import OrderObserver
 
 import backtrader as bt
 import backtrader.feeds as btfeeds
 import backtrader.indicators as btind
-
-from orderobserver import OrderObserver
 
 
 class MyStrategy(bt.Strategy):

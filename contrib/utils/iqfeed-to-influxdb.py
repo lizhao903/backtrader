@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-import sys
-import os
+import argparse
+import datetime as dt
 import io
-import socket
 import logging
+import os
+import socket
+import sys
+
 import numpy as np
 import pandas as pd
-import datetime as dt
-import argparse
 from influxdb import DataFrameClient as dfclient
 from influxdb.exceptions import InfluxDBClientError
 

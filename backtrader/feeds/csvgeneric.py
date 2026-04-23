@@ -18,13 +18,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
-from datetime import datetime
 import itertools
+from datetime import datetime
 
-from .. import feed, TimeFrame
+from .. import TimeFrame, feed
 from ..utils import date2num
 from ..utils.py3 import integer_types, string_types
 

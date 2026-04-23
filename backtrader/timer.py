@@ -18,9 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import bisect
 import collections
@@ -29,10 +27,8 @@ from itertools import islice
 
 from .feed import AbstractDataBase
 from .metabase import MetaParams
-from .utils import date2num, num2date
+from .utils import TIME_MAX, date2num, num2date
 from .utils.py3 import integer_types, range, with_metaclass
-from .utils import TIME_MAX
-
 
 __all__ = ['SESSION_TIME', 'SESSION_START', 'SESSION_END', 'Timer']
 

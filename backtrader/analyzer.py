@@ -18,13 +18,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import calendar
-from collections import OrderedDict
 import datetime
 import pprint as pp
+from collections import OrderedDict
 
 import backtrader as bt
 from backtrader import TimeFrame

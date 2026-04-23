@@ -18,18 +18,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from copy import copy
 import datetime
 import itertools
-
-from .utils.py3 import range, with_metaclass, iteritems
+from copy import copy
 
 from .metabase import MetaParams
 from .utils import AutoOrderedDict
+from .utils.py3 import iteritems, range, with_metaclass
 
 
 class OrderExecutionBit(object):

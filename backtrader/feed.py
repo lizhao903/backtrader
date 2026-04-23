@@ -18,8 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
 import datetime
@@ -28,13 +27,12 @@ import io
 import os.path
 
 import backtrader as bt
-from backtrader import (date2num, num2date, time2num, TimeFrame, dataseries,
-                        metabase)
-
-from backtrader.utils.py3 import with_metaclass, zip, range, string_types
+from backtrader import TimeFrame, dataseries, date2num, metabase, num2date, time2num
 from backtrader.utils import tzparse
+from backtrader.utils.py3 import range, string_types, with_metaclass, zip
+
 from .dataseries import SimpleFilterWrapper
-from .resamplerfilter import Resampler, Replayer
+from .resamplerfilter import Replayer, Resampler
 from .tradingcal import PandasMarketCalendar
 
 

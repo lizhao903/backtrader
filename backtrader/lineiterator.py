@@ -18,21 +18,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
 import operator
 import sys
 
-from .utils.py3 import map, range, zip, with_metaclass, string_types
-from .utils import DotDict
-
-from .lineroot import LineRoot, LineSingle
-from .linebuffer import LineActions, LineNum
-from .lineseries import LineSeries, LineSeriesMaker
-from .dataseries import DataSeries
 from . import metabase
+from .dataseries import DataSeries
+from .linebuffer import LineActions, LineNum
+from .lineroot import LineRoot, LineSingle
+from .lineseries import LineSeries, LineSeriesMaker
+from .utils import DotDict
+from .utils.py3 import map, range, string_types, with_metaclass, zip
 
 
 class MetaLineIterator(LineSeries.__class__):

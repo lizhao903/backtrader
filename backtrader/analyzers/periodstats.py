@@ -18,15 +18,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import backtrader as bt
-from backtrader.utils.py3 import itervalues
 from backtrader.mathsupport import average, standarddev
-from . import TimeReturn
+from backtrader.utils.py3 import itervalues
 
+from . import TimeReturn
 
 __all__ = ['PeriodStats']
 

@@ -18,15 +18,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import math
 
 import backtrader as bt
 from backtrader import TimeFrameAnalyzerBase
-from . import Returns
+
 from ..mathsupport import standarddev
+from . import Returns
 
 
 class VWR(TimeFrameAnalyzerBase):

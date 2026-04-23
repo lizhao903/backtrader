@@ -28,17 +28,15 @@ lines at once.
 .. moduleauthor:: Daniel Rodriguez
 
 '''
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import sys
 
-from .utils.py3 import map, range, string_types, with_metaclass
-
-from .linebuffer import LineBuffer, LineActions, LinesOperation, LineDelay, NAN
-from .lineroot import LineRoot, LineSingle, LineMultiple
-from .metabase import AutoInfoClass
 from . import metabase
+from .linebuffer import NAN, LineActions, LineBuffer, LineDelay, LinesOperation
+from .lineroot import LineMultiple, LineRoot, LineSingle
+from .metabase import AutoInfoClass
+from .utils.py3 import map, range, string_types, with_metaclass
 
 
 class LineAlias(object):

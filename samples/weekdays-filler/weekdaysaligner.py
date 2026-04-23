@@ -18,19 +18,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
 import datetime
+
+# from wkdaysfiller import WeekDaysFiller
+from weekdaysfiller import WeekDaysFiller
 
 import backtrader as bt
 import backtrader.feeds as btfeeds
 import backtrader.indicators as btind
 import backtrader.utils.flushfile
-
-# from wkdaysfiller import WeekDaysFiller
-from weekdaysfiller import WeekDaysFiller
 
 
 class St(bt.Strategy):

@@ -18,15 +18,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 from backtrader.comminfo import CommInfoBase
 from backtrader.metabase import MetaParams
 from backtrader.utils.py3 import with_metaclass
 
-from . import fillers as fillers
 from . import fillers as filler
+from . import fillers as fillers
 
 
 class MetaBroker(MetaParams):

@@ -18,8 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
 import copy
@@ -28,16 +27,25 @@ import inspect
 import itertools
 import operator
 
-from .utils.py3 import (filter, keys, integer_types, iteritems, itervalues,
-                        map, MAXINT, string_types, with_metaclass)
-
 import backtrader as bt
+
 from .lineiterator import LineIterator, StrategyBase
 from .lineroot import LineSingle
 from .lineseries import LineSeriesStub
 from .metabase import ItemCollection, findowner
 from .trade import Trade
-from .utils import OrderedDict, AutoOrderedDict, AutoDictList
+from .utils import AutoDictList, AutoOrderedDict, OrderedDict
+from .utils.py3 import (
+    MAXINT,
+    filter,
+    integer_types,
+    iteritems,
+    itervalues,
+    keys,
+    map,
+    string_types,
+    with_metaclass,
+)
 
 
 class MetaStrategy(StrategyBase.__class__):

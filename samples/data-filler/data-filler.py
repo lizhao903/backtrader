@@ -18,20 +18,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
 import datetime
 import math
 
+from relativevolume import RelativeVolume
+
 # The above could be sent to an independent module
 import backtrader as bt
 import backtrader.feeds as btfeeds
-import backtrader.utils.flushfile
 import backtrader.filters as btfilters
-
-from relativevolume import RelativeVolume
+import backtrader.utils.flushfile
 
 
 def runstrategy():

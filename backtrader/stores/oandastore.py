@@ -18,23 +18,21 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from datetime import datetime, timedelta
-import time as _time
 import json
 import threading
+import time as _time
+from datetime import datetime, timedelta
 
 import oandapy
 import requests  # oandapy depdendency
 
 import backtrader as bt
 from backtrader.metabase import MetaParams
-from backtrader.utils.py3 import queue, with_metaclass
 from backtrader.utils import AutoDict
-
+from backtrader.utils.py3 import queue, with_metaclass
 
 # Extend the exceptions to support extra cases
 

@@ -23,7 +23,6 @@
 
 import backtrader as bt
 
-
 __all__ = ['Fractal']
 
 

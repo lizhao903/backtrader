@@ -18,12 +18,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
+import os.path
 from datetime import datetime
 from struct import unpack
-import os.path
 
 import backtrader as bt
 from backtrader import date2num  # avoid dict lookups

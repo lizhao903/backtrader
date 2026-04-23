@@ -18,25 +18,24 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
-from copy import copy
-from datetime import date, datetime, timedelta
 import inspect
 import itertools
 import random
 import threading
 import time
+from copy import copy
+from datetime import date, datetime, timedelta
 
-from ib.ext.Contract import Contract
 import ib.opt as ibopt
+from ib.ext.Contract import Contract
 
-from backtrader import TimeFrame, Position
+from backtrader import Position, TimeFrame
 from backtrader.metabase import MetaParams
-from backtrader.utils.py3 import bytes, bstr, queue, with_metaclass, long
-from backtrader.utils import AutoDict, UTC
+from backtrader.utils import UTC, AutoDict
+from backtrader.utils.py3 import bstr, bytes, long, queue, with_metaclass
 
 bytes = bstr  # py2/3 need for ibpy
 

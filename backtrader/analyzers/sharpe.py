@@ -18,16 +18,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import math
 
-from backtrader.utils.py3 import itervalues
-
 from backtrader import Analyzer, TimeFrame
+from backtrader.analyzers import AnnualReturn, TimeReturn
 from backtrader.mathsupport import average, standarddev
-from backtrader.analyzers import TimeReturn, AnnualReturn
+from backtrader.utils.py3 import itervalues
 
 
 class SharpeRatio(Analyzer):

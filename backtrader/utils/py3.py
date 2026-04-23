@@ -18,8 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import itertools
 import sys
@@ -54,9 +53,9 @@ if PY2:
     bstr = bytes
 
     from io import StringIO
-
-    from urllib2 import urlopen, ProxyHandler, build_opener, install_opener
     from urllib import quote as urlquote
+
+    from urllib2 import ProxyHandler, build_opener, install_opener, urlopen
 
     def iterkeys(d): return d.iterkeys()
 
@@ -100,10 +99,8 @@ else:
     def bstr(x): return str(x)
 
     from io import StringIO
-
-    from urllib.request import (urlopen, ProxyHandler, build_opener,
-                                install_opener)
     from urllib.parse import quote as urlquote
+    from urllib.request import ProxyHandler, build_opener, install_opener, urlopen
 
     def iterkeys(d): return iter(d.keys())
 

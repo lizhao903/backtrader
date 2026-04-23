@@ -18,11 +18,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
-import datetime
 import collections
+import datetime
 import itertools
 import multiprocessing
 
@@ -32,20 +31,16 @@ except AttributeError:  # For old Python versions
     collectionsAbc = collections  # Используем collections.Iterable
 
 import backtrader as bt
-from .utils.py3 import (map, range, zip, with_metaclass, string_types,
-                        integer_types)
 
-from . import linebuffer
-from . import indicator
+from . import indicator, linebuffer, observers
 from .brokers import BackBroker
 from .metabase import MetaParams
-from . import observers
-from .writer import WriterFile
-from .utils import OrderedDict, tzparse, num2date, date2num
-from .strategy import Strategy, SignalStrategy
-from .tradingcal import (TradingCalendarBase, TradingCalendar,
-                         PandasMarketCalendar)
+from .strategy import SignalStrategy, Strategy
 from .timer import Timer
+from .tradingcal import PandasMarketCalendar, TradingCalendar, TradingCalendarBase
+from .utils import OrderedDict, date2num, num2date, tzparse
+from .utils.py3 import integer_types, map, range, string_types, with_metaclass, zip
+from .writer import WriterFile
 
 # Defined here to make it pickable. Ideally it could be defined inside Cerebro
 

@@ -18,15 +18,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
+from datetime import datetime, time, timedelta
 
-from datetime import datetime, timedelta, time
+from backtrader.utils import UTC
+from backtrader.utils.py3 import string_types, with_metaclass
 
 from .metabase import MetaParams
-from backtrader.utils.py3 import string_types, with_metaclass
-from backtrader.utils import UTC
 
 __all__ = ['TradingCalendarBase', 'TradingCalendar', 'PandasMarketCalendar']
 

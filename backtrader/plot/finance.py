@@ -18,16 +18,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
-
-from ..utils.py3 import range, zip
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import matplotlib.collections as mcol
 import matplotlib.colors as mcolors
 import matplotlib.legend as mlegend
 import matplotlib.lines as mlines
 
+from ..utils.py3 import range, zip
 from .utils import shade_color
 
 

@@ -18,24 +18,31 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import collections
+import threading
 from copy import copy
 from datetime import date, datetime, timedelta
-import threading
 
-from backtrader.feed import DataBase
-from backtrader import (TimeFrame, num2date, date2num, BrokerBase,
-                        Order, BuyOrder, SellOrder, OrderBase, OrderData)
-from backtrader.utils.py3 import bytes, with_metaclass, MAXFLOAT
-from backtrader.metabase import MetaParams
+from backtrader import (
+    BrokerBase,
+    BuyOrder,
+    Order,
+    OrderBase,
+    OrderData,
+    SellOrder,
+    TimeFrame,
+    date2num,
+    num2date,
+)
 from backtrader.comminfo import CommInfoBase
+from backtrader.feed import DataBase
+from backtrader.metabase import MetaParams
 from backtrader.position import Position
 from backtrader.stores import oandastore
 from backtrader.utils import AutoDict, AutoOrderedDict
-from backtrader.comminfo import CommInfoBase
+from backtrader.utils.py3 import MAXFLOAT, bytes, with_metaclass
 
 
 class OandaCommInfo(CommInfoBase):
