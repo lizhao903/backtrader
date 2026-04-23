@@ -119,6 +119,13 @@ def main(argv=None):
     print('\nResultStore summary:', rs.get_analysis())
 
     dump_db(args.db)
+
+    # Emit the FastAPI-interop JSON document alongside the SQLite file.
+    from backtrader.analyzers.resultexporter import export_run_to_json
+    run_id = rs.get_analysis()['run_id']
+    json_path = args.db.replace('.sqlite', '.json')
+    export_run_to_json(args.db, run_id, json_path)
+    print('JSON export: {0}'.format(json_path))
     return 0
 
 

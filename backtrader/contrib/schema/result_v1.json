@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lizhao903/backtrader/schema/result_v1.json",
+  "title": "BacktestResultV1",
+  "description": "Interop contract for a single backtrader backtest run persisted by ResultStore. Consumers (e.g. FastAPI services) can parse this document without unpickling any Strategy object.",
+  "type": "object",
+  "required": ["schema_version", "run", "metrics", "trades"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "v1",
+      "description": "Literal schema version tag. Bump when the shape changes incompatibly."
+    },
+    "run": {
+      "type": "object",
+      "description": "One row from backtest_run.",
+      "required": [
+        "run_id",
+        "label",
+        "start_ts",
+        "end_ts",
+        "cerebro_broker_starting_cash",
+        "cerebro_broker_ending_value",
+        "strategy_name",
+        "meta_json"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "description": "UUID4 identifying this run."
+        },
+        "label": {
+          "type": ["string", "null"],
+          "description": "Optional human label supplied via ResultStore(run_label=...)."
+        },
+        "start_ts": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO8601 UTC start timestamp."
+        },
+        "end_ts": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "ISO8601 UTC end timestamp."
+        },
+        "cerebro_broker_starting_cash": {
+          "type": ["number", "null"]
+        },
+        "cerebro_broker_ending_value": {
+          "type": ["number", "null"]
+        },
+        "strategy_name": {
+          "type": ["string", "null"],
+          "description": "Python class name of the owning Strategy."
+        },
+        "meta_json": {
+          "type": ["object", "array", "string", "null"],
+          "description": "Free-form JSON blob written by ResultStore (list of sibling analyzers etc.)."
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "description": "Flattened sibling analyzer outputs. One row per dot-path key.",
+      "items": {
+        "type": "object",
+        "required": ["analyzer", "key", "value_num", "value_text"],
+        "additionalProperties": false,
+        "properties": {
+          "analyzer": {
+            "type": "string",
+            "description": "Python class name of the analyzer that produced this key."
+          },
+          "key": {
+            "type": "string",
+            "description": "Dot-path within the analyzer's get_analysis() output, e.g. 'sharpe.ratio'."
+          },
+          "value_num": {
+            "type": ["number", "null"],
+            "description": "Populated when the flattened value was numeric or boolean."
+          },
+          "value_text": {
+            "type": ["string", "null"],
+            "description": "Populated when the flattened value was non-numeric (JSON-stringified)."
+          }
+        }
+      }
+    },
+    "trades": {
+      "type": "array",
+      "description": "One row per closed trade.",
+      "items": {
+        "type": "object",
+        "required": [
+          "trade_ref",
+          "data_name",
+          "size",
+          "price",
+          "pnl",
+          "pnlcomm",
+          "commission",
+          "open_dt",
+          "close_dt"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "trade_ref": {
+            "type": "integer",
+            "description": "backtrader Trade.ref — monotonically increasing per process."
+          },
+          "data_name": {
+            "type": ["string", "null"]
+          },
+          "size": {
+            "type": ["number", "null"]
+          },
+          "price": {
+            "type": ["number", "null"]
+          },
+          "pnl": {
+            "type": ["number", "null"]
+          },
+          "pnlcomm": {
+            "type": ["number", "null"]
+          },
+          "commission": {
+            "type": ["number", "null"]
+          },
+          "open_dt": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "close_dt": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
