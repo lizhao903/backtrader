@@ -54,8 +54,13 @@ gh issue close <N>
 
 对 #23：**不关闭**（只完成骨架，LocalKeystore 在 Segment 3）。评论说明"scaffold landed, Segment 3 will complete"。
 
-### Step 4: 触发 Segment 3
-无需手动——01:00 cron 会自动触发。但在本 Segment 末尾，把简短总结写进 `.claude-autopilot/log-segment2.md`，供 Segment 3 参考。
+### Step 4: Overflow — 继续消化 `overflow.md`
+在 01:00 之前的剩余时间里，按 `overflow.md` 队列从 #11 开始依次派单 agent（worktree），
+每完成一个 commit + push + close。直到触发停止条件（见 overflow.md 规则）。
+
+### Step 5: 触发 Segment 3
+无需手动——01:00 cron 会自动触发。但在本 Segment 末尾，把简短总结写进 `.claude-autopilot/log-segment2.md`，
+记录已消化的 overflow 进度，供 Segment 3 参考。
 
 ## 失败兜底
 - Agent 失败：记日志、跳过该 issue、继续下一个

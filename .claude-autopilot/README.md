@@ -22,4 +22,8 @@
    - sub-agent 报告字数上限 1500 字
    - 主 turn 不要把 agent 返回的原文全量粘到下一个 agent 的 prompt，做总结后再转发
    - **触发 rate limit 时**：记日志、sleep 600s、最多重试 2 次；仍失败就跳过本 issue 写入 log
-7. 完成本 Segment 所有工作后，立即 `git push`，然后结束 turn 等下一次 cron。
+7. 完成本 Segment 所有工作后：
+   - 如果仍有时间 + 预算，读 `overflow.md` 拿下一个 issue 继续做
+   - 否则 `git push`，结束 turn 等下一次 cron
+8. **"尽可能多做"原则**：只要账户额度和 wall clock 允许，就不停派 agent 消化 `overflow.md`。
+   overflow 队列尊重依赖顺序；每做完一个就划掉它。

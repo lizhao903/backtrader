@@ -48,7 +48,11 @@ close #2（pytest 全量迁移）和 #23（钱包抽象完整实现）。收尾 
 - #2: 如果 pass 率 ≥ 70%，close；否则留开并评论 pass/fail 统计
 - #23: 验收清单全部打勾则 close
 
-### Step 4: 生成早间交付摘要
+### Step 4: Overflow — 继续消化 `overflow.md`
+在 06:00 之前的剩余时间里，从 Segment 2 停下的位置继续往下取 issue 做。单 agent、
+顺序执行，同样遵守停止条件。
+
+### Step 5: 生成早间交付摘要
 
 写 `.claude-autopilot/DELIVERY.md`：
 - 分支：`dev/autopilot-2026-04-23`
@@ -57,7 +61,7 @@ close #2（pytest 全量迁移）和 #23（钱包抽象完整实现）。收尾 
 - 建议的下一步操作（比如 "review PR and merge to main"）
 - 总提交数、总改动行数
 
-### Step 5: 打印给用户的最终消息
+### Step 6: 打印给用户的最终消息
 
 最后一次 turn 的文本输出应该简短、全中文、直接告诉用户分支名和 DELIVERY.md 路径。**不要问问题**。
 
